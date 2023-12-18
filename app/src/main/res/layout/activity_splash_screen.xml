@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_bg"
+    tools:context=".SplashScreenActivity"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/txt0"
+        android:layout_marginTop="350dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="30dp"
+        >
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In every frame, a "
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="22sp"
+            />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_below="@id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="story unfolds, painted"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="22sp"
+            />
+
+        <TextView
+            android:id="@+id/txt3"
+            android:layout_below="@id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="with a thousand "
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="22sp"
+            />
+
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_below="@id/txt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="colors."
+            android:textColor="@color/blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="22sp"
+            />
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_marginTop="400dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/txt0"
+        android:src="@drawable/ghibli_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/start_btn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/poppins_semibold"
+        app:layout_constraintTop_toBottomOf="@id/txt0"
+        android:textSize="22sp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        android:text="Get Started"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

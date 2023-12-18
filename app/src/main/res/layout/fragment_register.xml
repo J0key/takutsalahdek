@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_register_bg"
+    tools:context=".account.RegisterFragment">
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TextWelcomeSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Sign Up"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/TextSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="50dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Please fill these data"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            app:endIconMode="clear_text"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:boxBackgroundColor="#222121"
+            app:hintTextColor="@color/white"
+            app:boxStrokeColor="@color/white"
+            android:layout_marginEnd="40dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditUsernameSignUp"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                android:drawableStart="@drawable/account"
+                android:drawablePadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="username"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            app:endIconMode="clear_text"
+            app:counterEnabled="true"
+            app:boxBackgroundColor="#222121"
+            app:hintTextColor="@color/white"
+            app:boxStrokeColor="@color/white"
+            android:layout_marginEnd="40dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditEmailSignUp"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="email"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="#EE4B2B"
+            app:endIconMode="password_toggle"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:boxBackgroundColor="#222121"
+            app:hintTextColor="@color/white"
+            app:boxStrokeColor="@color/white"
+            android:layout_marginEnd="40dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EditPasswordSignUp"
+                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+                android:drawableStart="@drawable/lock"
+                android:drawablePadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLength="21"
+                android:hint="password"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/role"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#222121"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Sign Up"
+            android:textSize="16sp"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

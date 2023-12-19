@@ -11,10 +11,9 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.uas.admin.mainAdminActivity
+import com.example.uas.admin.MainAdminActivity
 import com.example.uas.databinding.FragmentRegisterBinding
 import com.example.uas.user.bottomNavbarActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterFragment : Fragment() {
@@ -93,7 +92,7 @@ class RegisterFragment : Fragment() {
         }
     private fun navigateToHome(role: String) {
         val intent = when (role) {
-            "Admin" -> Intent(requireContext(), mainAdminActivity::class.java)
+            "Admin" -> Intent(requireContext(), MainAdminActivity::class.java)
             // Add other role-specific activities here
             else -> Intent(requireContext(), bottomNavbarActivity::class.java)
         }

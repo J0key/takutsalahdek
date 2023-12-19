@@ -5,7 +5,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.uas.R
 import com.example.uas.database.Movies
@@ -48,6 +47,11 @@ class AddActivity : AppCompatActivity() {
                     uploadData()
                 }
             }
+            backBtn.setOnClickListener {
+                val intent = Intent(this@AddActivity, MainAdminActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 
@@ -71,7 +75,7 @@ class AddActivity : AppCompatActivity() {
                     .addOnFailureListener {
                         Log.d("MainActivity", "Error updating movie ID: ", it)
                     }
-                val intent = Intent(this@AddActivity, mainAdminActivity::class.java)
+                val intent = Intent(this@AddActivity, MainAdminActivity::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -109,16 +113,15 @@ class AddActivity : AppCompatActivity() {
                     Log.d("Download URL", downloadUrl.toString())
                     with(bindingAddMovies) {
                         val title = EditMovieTitle.text.toString()
-                        val director = EditMovieYear.text.toString()
+                        val year = EditMovieYear.text.toString()
                         val description = EditMovieDescription.text.toString()
                         val rating = EditMovieRating.text.toString()
                         val movie = Movies(
                             imagePath = downloadUrl,
                             title = title,
-                            year = director,
+                            year = year,
                             description = description,
                             rating = rating,
-                            isTrending = false
                         )
                         addMovie(movie)
                     }

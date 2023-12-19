@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_register_bg"
-    tools:context=".admin.mainAdminActivity">
+    tools:context=".admin.MainAdminActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,15 +13,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/baseline_keyboard_backspace_24"
+            app:tint="@color/white" />
 
         <TextView
+            android:layout_below="@id/backBtn"
             android:id="@+id/TextWelcomeAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:text="Welcome Admin!"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:textColor="@color/white"
             android:textSize="30sp"
@@ -50,7 +58,6 @@
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="30dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/container_movie_admin" />
 
     </RelativeLayout>

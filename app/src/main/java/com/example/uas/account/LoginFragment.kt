@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.uas.admin.mainAdminActivity
+import com.example.uas.admin.MainAdminActivity
 import com.example.uas.databinding.FragmentLoginBinding
 import com.example.uas.helper.Constant
 import com.example.uas.helper.sharepref
@@ -77,7 +77,7 @@ class LoginFragment : Fragment() {
         when (role) {
             "Admin" -> {
                 saveSession(username, role)
-                startActivity(Intent(requireContext(), mainAdminActivity::class.java))
+                startActivity(Intent(requireContext(), MainAdminActivity::class.java))
                 showToast("Admin Sign In Successfully.")
             }
             "User" -> {

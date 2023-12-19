@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ghiblilauncher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ghiblilauncher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Uas"
         tools:targetApi="31">
@@ -18,7 +18,7 @@
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.mainAdminActivity"
+            android:name=".admin.MainAdminActivity"
             android:exported="false" />
         <activity
             android:name=".admin.EditActivity"

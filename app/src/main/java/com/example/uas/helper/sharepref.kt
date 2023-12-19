@@ -33,4 +33,6 @@ class sharepref (context: Context){
         editor.clear()
             .apply()
     }
+
+
 }

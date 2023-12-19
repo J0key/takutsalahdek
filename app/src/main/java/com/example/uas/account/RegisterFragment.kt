@@ -11,17 +11,14 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.uas.R
-import com.example.uas.adminHomeActivity
+import com.example.uas.admin.mainAdminActivity
 import com.example.uas.databinding.FragmentRegisterBinding
+import com.example.uas.user.bottomNavbarActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterFragment : Fragment() {
-    private var _binding: FragmentRegisterBinding? = null
-    private val binding get() = _binding!!
-
-    private lateinit var auth: FirebaseAuth
+    private lateinit var binding: FragmentRegisterBinding
     private val db = FirebaseFirestore.getInstance()
 
     private lateinit var etUsername: EditText
@@ -33,9 +30,7 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
-        auth = FirebaseAuth.getInstance()
-
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         return binding.root
     }
@@ -69,42 +64,38 @@ class RegisterFragment : Fragment() {
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show()
-            return
-        }
+        } else {
+            val userData = HashMap<String, Any>()
+                userData["username"] = username
+                userData["password"] = password
+                userData["role"] = selectedRole
+                userData["email"] = email
 
-        // Firebase Authentication to create a user with email and password
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    user?.let {
-                        val userData = HashMap<String, Any>()
-                        userData["username"] = username
-                        userData["role"] = selectedRole
-                        userData["email"] = email
-
-                        // Save user data in Firestore
-                        db.collection("users").document(user.uid)
-                            .set(userData)
-                            .addOnSuccessListener {
-                                Toast.makeText(requireContext(), "Registration Successful", Toast.LENGTH_SHORT).show()
-                                navigateToHome(selectedRole)
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-                            }
+                // Save user data in Firestore
+                db.collection("users")
+                    .add(userData)
+                    .addOnSuccessListener {
+                        Toast.makeText(
+                            requireContext(),
+                            "Registration Successful",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        navigateToHome(selectedRole)
                     }
-                } else {
-                    Toast.makeText(requireContext(), "Registration Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                }
+                    .addOnFailureListener { d ->
+                        Toast.makeText(
+                            requireContext(),
+                            "Error: ${d.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
             }
-    }
-
+        }
     private fun navigateToHome(role: String) {
         val intent = when (role) {
-            "Admin" -> Intent(requireContext(), adminHomeActivity::class.java)
+            "Admin" -> Intent(requireContext(), mainAdminActivity::class.java)
             // Add other role-specific activities here
-            else -> Intent(requireContext(), adminHomeActivity::class.java)
+            else -> Intent(requireContext(), bottomNavbarActivity::class.java)
         }
         startActivity(intent)
         requireActivity().finish()
@@ -112,6 +103,6 @@ class RegisterFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding
     }
 }

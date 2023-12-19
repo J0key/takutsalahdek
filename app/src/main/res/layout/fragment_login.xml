@@ -62,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLength="11"
+                android:textColor="@color/white"
                 android:hint="username"
                 android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,6 +74,7 @@
             android:layout_marginStart="40dp"
             app:helperTextEnabled="true"
             app:endIconMode="password_toggle"
+            app:endIconCheckable="true"
             app:counterEnabled="true"
             app:counterMaxLength="20"
             app:boxBackgroundColor="#222121"
@@ -87,6 +89,7 @@
                 android:drawablePadding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:inputType="textPassword"
                 android:maxLength="21"
                 android:hint="password"

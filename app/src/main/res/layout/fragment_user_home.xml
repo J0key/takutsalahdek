@@ -24,7 +24,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="20dp"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
@@ -34,11 +34,11 @@
             android:fontFamily="@font/poppins_bold"
             android:text="User "
             android:layout_toEndOf="@id/TextWelcomeUSer"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="20dp"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="25sp"
             />
 
 

@@ -9,18 +9,24 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayoutLogin"
         android:layout_width="409dp"
+        android:background="@color/blue"
         android:layout_height="wrap_content"
+        app:tabIconTint="@color/black"
+        app:tabTextColor="@color/white"
+        app:tabRippleColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.tabs.TabItem
+            rippleColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign In" />
 
         <com.google.android.material.tabs.TabItem
+            rippleColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up" />

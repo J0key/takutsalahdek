@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.uas.admin.MainAdminActivity
 import com.example.uas.databinding.FragmentRegisterBinding
-import com.example.uas.user.bottomNavbarActivity
+import com.example.uas.users.BottomNavbarActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterFragment : Fragment() {
@@ -94,7 +94,7 @@ class RegisterFragment : Fragment() {
         val intent = when (role) {
             "Admin" -> Intent(requireContext(), MainAdminActivity::class.java)
             // Add other role-specific activities here
-            else -> Intent(requireContext(), bottomNavbarActivity::class.java)
+            else -> Intent(requireContext(), BottomNavbarActivity::class.java)
         }
         startActivity(intent)
         requireActivity().finish()

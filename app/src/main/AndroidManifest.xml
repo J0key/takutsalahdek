@@ -27,7 +27,7 @@
             android:name=".admin.AddActivity"
             android:exported="false" />
         <activity
-            android:name=".user.bottomNavbarActivity"
+            android:name=".users.BottomNavbarActivity"
             android:exported="false" />
         <activity
             android:name=".account.TabLayoutActivity"

@@ -13,7 +13,7 @@ import com.example.uas.admin.MainAdminActivity
 import com.example.uas.databinding.FragmentLoginBinding
 import com.example.uas.helper.Constant
 import com.example.uas.helper.sharepref
-import com.example.uas.user.bottomNavbarActivity
+import com.example.uas.users.BottomNavbarActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginFragment : Fragment() {
@@ -82,7 +82,7 @@ class LoginFragment : Fragment() {
             }
             "User" -> {
                 saveSession(username, role)
-                startActivity(Intent(requireContext(), bottomNavbarActivity::class.java))
+                startActivity(Intent(requireContext(), BottomNavbarActivity::class.java))
                 showToast("User Sign In Successfully.")
             }
             else -> showToast("Invalid role")

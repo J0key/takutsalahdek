@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uas.R
 import com.example.uas.account.TabLayoutActivity
 import com.example.uas.database.Movies
+import com.example.uas.DetailActivity
 import com.example.uas.databinding.ActivityMainAdminBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
@@ -39,17 +41,42 @@ class MainAdminActivity : AppCompatActivity() {
 
         rvAdapter = RvAdminAdapter(listMovies,
             onItemClick = { movie ->
+                val dialog = AlertDialog.Builder(this@MainAdminActivity)
+                    .setTitle("Choose an action")
+
+                    .setPositiveButton("Update") { _, _ ->
+                        executorService.execute {
+                        val position = listMovies.indexOf(movie)
+                        val selectedMovies = listMovies[position] // posisi gambar yang diklik
+                        val intent = Intent(this@MainAdminActivity, EditActivity::class.java)
+                        intent.putExtra("SELECTED_MOVIES", selectedMovies)
+                        startActivity(intent)
+    //                    startActivityForResult(intent, 2)
+                       }
+                    }
+
+                    // Add Delete button
+                    .setNegativeButton("Delete") { _, _ ->
+                        // Call deleteMovies function
+                        deleteMovies(movie)
+                    }
+                    .create()
+
+                // Show the dialog
+                dialog.show()
+            },
+
+            onItemLongClick = { movie -> // Create an AlertDialog
                 executorService.execute {
                     val position = listMovies.indexOf(movie)
-                    val selectedMovies = listMovies[position] // posisi gambar yang diklik
-                    val intent = Intent(this@MainAdminActivity, EditActivity::class.java)
-                    intent.putExtra("SELECTED_MOVIES", selectedMovies)
+                    val selectedMovie = listMovies[position] // Position of the clicked item
+                    val intent = Intent(this@MainAdminActivity, DetailActivity::class.java)
+                    intent.putExtra("SELECTED_MOVIE", selectedMovie)
                     startActivity(intent)
-//                    startActivityForResult(intent, 2)
+                    // Uncomment the next line if you need to start the activity for result
+                    // startActivityForResult(intent, 2)
                 }
-            },
-            onItemLongClick = { movie ->
-                deleteMovies(movie = movie) }
+            }
         )
 
         binding.MyRecyclerView.apply {

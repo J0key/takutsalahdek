@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -51,10 +52,11 @@ class UserHomeFragment : Fragment() {
 
         // Initialize RecyclerView adapter
         rvAdapter = RvUserAdapter(movieList) { movie ->
+//            Toast.makeText(context, "Masuk Detail", Toast.LENGTH_SHORT).show()
             val intent = Intent(requireContext(), DetailActivity::class.java)
             intent.putExtra("SELECTED_MOVIE", movie)
             startActivity(intent)
-            // Uncomment the next line if you need to start the activity for result
+//            // Uncomment the next line if you need to start the activity for result
             // startActivityForResult(intent, 2)
         }
 

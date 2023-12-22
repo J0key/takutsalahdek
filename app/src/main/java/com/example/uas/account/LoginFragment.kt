@@ -81,13 +81,13 @@ class LoginFragment : Fragment() {
                 val channelId = "your_channel_id"  // Replace with your actual channel ID
                 val builder = NotificationCompat.Builder(requireContext(), channelId)
                     .setSmallIcon(R.drawable.ghibli_icon)
-                    .setContentTitle("Character")
+                    .setContentTitle("Ghibli Studio")
                     .setAutoCancel(true)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .addAction(0, "Further Information", pendingIntent)
                     .setStyle(
                         NotificationCompat.BigTextStyle()
-                            .bigText("Hi!, this is Kim Dok Ja, Let's having adventure with me!!")
+                            .bigText("Login Successful")
                     )
 
                 val notifManager = requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -95,7 +95,7 @@ class LoginFragment : Fragment() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     val notifChannel = NotificationChannel(
                         channelId,
-                        "Character",
+                        "Ghibli Studio",
                         NotificationManager.IMPORTANCE_DEFAULT
                     )
                     notifManager.createNotificationChannel(notifChannel)

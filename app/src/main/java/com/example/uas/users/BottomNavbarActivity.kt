@@ -27,7 +27,7 @@ class BottomNavbarActivity : AppCompatActivity() {
                     true
                 }
                 R.id.settingFragment -> {
-                    loadFragment(userSettingsFragment())
+                    loadFragment(UserSettingsFragment())
                     true
                 }
                 else -> false

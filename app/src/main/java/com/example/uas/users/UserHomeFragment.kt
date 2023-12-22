@@ -1,5 +1,6 @@
 package com.example.uas.users
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.uas.DetailActivity
 import com.example.uas.R
 import com.example.uas.database.Movies
 import com.example.uas.databinding.FragmentUserHomeBinding
@@ -49,7 +51,11 @@ class UserHomeFragment : Fragment() {
 
         // Initialize RecyclerView adapter
         rvAdapter = RvUserAdapter(movieList) { movie ->
-            // Handle movie item click event here
+            val intent = Intent(requireContext(), DetailActivity::class.java)
+            intent.putExtra("SELECTED_MOVIE", movie)
+            startActivity(intent)
+            // Uncomment the next line if you need to start the activity for result
+            // startActivityForResult(intent, 2)
         }
 
         // Setup RecyclerView
@@ -65,6 +71,7 @@ class UserHomeFragment : Fragment() {
         // Start observing movie data
         getAllMovies()
     }
+
 
     private fun getAllMovies() {
         observeMoviesChanges()

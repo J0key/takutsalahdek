@@ -115,13 +115,13 @@ class AddActivity : AppCompatActivity() {
                         val title = EditMovieTitle.text.toString()
                         val year = EditMovieYear.text.toString()
                         val description = EditMovieDescription.text.toString()
-                        val rating = EditMovieRating.text.toString()
+//                        val rating = EditMovieRating.text.toString()
                         val movie = Movies(
                             imagePath = downloadUrl,
                             title = title,
                             year = year,
                             description = description,
-                            rating = rating,
+//                            rating = rating,
                         )
                         addMovie(movie)
                     }

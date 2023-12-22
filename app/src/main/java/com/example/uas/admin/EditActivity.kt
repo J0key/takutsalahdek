@@ -47,7 +47,7 @@ class EditActivity : AppCompatActivity() {
                                 imagePath = downloadUrl,
                                 title = EditMovieTitle.text.toString(),
                                 year = EditMovieYear.text.toString(),
-                                rating = EditMovieRating.text.toString(),
+//                                rating = EditMovieRating.text.toString(),
                                 description = EditMovieDescription.text.toString(),
                             )
                         )
@@ -58,7 +58,7 @@ class EditActivity : AppCompatActivity() {
                         Movies(
                             title = EditMovieTitle.text.toString(),
                             year = EditMovieYear.text.toString(),
-                            rating = EditMovieRating.text.toString(),
+//                            rating = EditMovieRating.text.toString(),
                             description = EditMovieDescription.text.toString(),
                         )
                     )
@@ -113,7 +113,7 @@ class EditActivity : AppCompatActivity() {
             EditMovieTitle.setText(selectedMovie.title)
             EditMovieYear.setText(selectedMovie.year)
             EditMovieDescription.setText(selectedMovie.description)
-            EditMovieRating.setText(selectedMovie.rating)
+//            EditMovieRating.setText(selectedMovie.rating)
 
             // Load the image using Glide
             val imagePath = selectedMovie.imagePath

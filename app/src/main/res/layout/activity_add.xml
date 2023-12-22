@@ -78,6 +78,7 @@
                     android:drawableStart="@drawable/movie_title"
                     android:drawablePadding="10dp"
                     android:hint="title"
+                    android:textColor="@color/white"
                     android:inputType="text"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -103,34 +104,35 @@
                     android:drawableStart="@drawable/baseline_calendar_month_24"
                     android:drawablePadding="10dp"
                     android:hint="year"
+                    android:textColor="@color/white"
                     android:inputType="number"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-                android:id="@+id/TextInputLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:boxBackgroundColor="#222121"
-                app:boxStrokeColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                app:hintTextColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/TextInputLayout2">
-                <AutoCompleteTextView
-                    android:id="@+id/EditMovieRating"
-                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/rate"
-                    android:drawablePadding="10dp"
-                    android:hint="rating"
-                    android:layout_weight="1"
-                    android:inputType="none"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"-->
+<!--                android:id="@+id/TextInputLayout3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:boxBackgroundColor="#222121"-->
+<!--                app:boxStrokeColor="@color/white"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:layout_marginRight="40dp"-->
+<!--                app:hintTextColor="@color/white"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/TextInputLayout2">-->
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/EditMovieRating"-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawableStart="@drawable/rate"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:hint="rating"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:inputType="none"-->
+<!--                    android:textSize="16sp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TextInputLayout4"
@@ -143,7 +145,7 @@
                 app:boxStrokeColor="@color/white"
                 app:endIconMode="clear_text"
                 app:hintTextColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/TextInputLayout3">
+                app:layout_constraintTop_toBottomOf="@+id/TextInputLayout2">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/EditMovieDescription"
@@ -156,6 +158,7 @@
                     android:inputType="textMultiLine"
                     android:gravity="top"
                     android:textSize="16sp"
+                    android:textColor="@color/white"
                     android:overScrollMode="always"
                     android:scrollbars="vertical"
                     android:scrollbarStyle="insideInset"

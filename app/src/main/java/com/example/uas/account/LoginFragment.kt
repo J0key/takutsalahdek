@@ -1,6 +1,13 @@
 package com.example.uas.account
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Context.NOTIFICATION_SERVICE
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +15,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
+import com.example.uas.Notif.NotifReceiver
+import com.example.uas.R
 import com.example.uas.admin.MainAdminActivity
 import com.example.uas.databinding.FragmentLoginBinding
 import com.example.uas.helper.Constant
@@ -20,6 +32,10 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private val db = FirebaseFirestore.getInstance()
     private lateinit var sharedPref: sharepref
+    private val channelId = "TEST NOTIF"
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,11 +55,55 @@ class LoginFragment : Fragment() {
         binding.ButtonSignIn.setOnClickListener {
             val username = binding.EditUsernameSignIn.text.toString()
             val password = binding.EditPasswordSignIn.text.toString()
+            val notificationManager = ContextCompat.getSystemService(requireContext(), NotificationManager::class.java)
+
 
             if (username.isEmpty() || password.isEmpty()) {
                 showToast("Please fill all the fields")
             } else {
                 authenticateUser(username, password)
+
+                //            notif receiver
+                val flag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    PendingIntent.FLAG_IMMUTABLE
+                } else {
+                    0
+                }
+                val intent = Intent(requireActivity(), NotifReceiver::class.java)
+                    .putExtra("MESSAGE", "Baca selengkapnya ...")
+                val pendingIntent = PendingIntent.getBroadcast(
+                    requireActivity(),
+                    0,
+                    intent,
+                    flag
+                )
+
+                val channelId = "your_channel_id"  // Replace with your actual channel ID
+                val builder = NotificationCompat.Builder(requireContext(), channelId)
+                    .setSmallIcon(R.drawable.ghibli_icon)
+                    .setContentTitle("Character")
+                    .setAutoCancel(true)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .addAction(0, "Further Information", pendingIntent)
+                    .setStyle(
+                        NotificationCompat.BigTextStyle()
+                            .bigText("Hi!, this is Kim Dok Ja, Let's having adventure with me!!")
+                    )
+
+                val notifManager = requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    val notifChannel = NotificationChannel(
+                        channelId,
+                        "Character",
+                        NotificationManager.IMPORTANCE_DEFAULT
+                    )
+                    notifManager.createNotificationChannel(notifChannel)
+                    notifManager.notify(0, builder.build())
+                } else {
+                    notifManager.notify(0, builder.build())
+                }
+
             }
         }
     }

@@ -136,13 +136,13 @@ class EditActivity : AppCompatActivity() {
                 "imagePath" to movie.imagePath,
                 "title" to movie.title,
                 "director" to movie.year,
-                "rating" to movie.rating,
+//                "rating" to movie.rating,
                 "description" to movie.description,
             )
             val updatesNoPict = mapOf(
                 "title" to movie.title,
                 "director" to movie.year,
-                "rating" to movie.rating,
+//                "rating" to movie.rating,
                 "description" to movie.description,
             )
 
